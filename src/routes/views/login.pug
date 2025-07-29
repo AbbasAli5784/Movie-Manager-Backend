@@ -1,14 +1,19 @@
+// This page lets users log in to their account
 extends layout
 
 block content
   h1 Login
   if error
+    // Shows an error if login fails
     p(style="color:#ff512f") #{error}
   form(method="POST", action="/auth/login")
+    // Username input
     label Username:
-    input(type="text", name="username", required)
+    input(type="text", name="username", required, style="padding:8px; border-radius:4px; border:1px solid #ccc; width:220px;")
     br
+    // Password input (now styled the same as username)
     label Password:
-    input(type="password", name="password", required)
+    input(type="password", name="password", required, style="padding:8px; border-radius:4px; border:1px solid #ccc; width:220px;")
     br
+    // Login button
     button(type="submit") Login

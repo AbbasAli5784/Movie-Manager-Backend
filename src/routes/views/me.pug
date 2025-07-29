@@ -1,8 +1,11 @@
+// This page shows info about the logged-in user
 extends layout
 
 block content
   h1 My Info
   if username
+    // Show the username if logged in
     p User Name: #{username}
   else
+    // If not logged in, show a message
     p You are not logged in.

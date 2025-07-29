@@ -1,3 +1,4 @@
+// This page shows details for a single movie
 doctype html
 html
   head
@@ -5,12 +6,17 @@ html
   body
     h1= movie.name
     p
+      // Show the movie description
       | Description: #{movie.description}
       br
+      // Show the year
       | Year: #{movie.year}
       br
+      // Show the genres
       | Genres: #{movie.genres.join(', ')}
       br
+      // Show the rating
       | Rating: #{movie.rating}
     br
+    // Link to go back to all movies
     a(href="/api/movies") Back to All Movies

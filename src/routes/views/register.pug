@@ -1,14 +1,19 @@
+// This page lets users register for a new account
 extends layout
 
 block content
   h1 Register
   if error
+    // Shows an error if registration fails
     p(style="color:#ff512f") #{error}
   form(method="POST", action="/auth/register")
+    // Username input
     label Username:
     input(type="text", name="username", required)
     br
+    // Password input
     label Password:
     input(type="password", name="password", required)
     br
+    // Register button
     button(type="submit") Register

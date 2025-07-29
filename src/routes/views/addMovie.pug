@@ -1,25 +1,34 @@
+// This page lets you add a new movie to the list
 extends layout
 
 block content
   h1 Add a New Movie
   if error
+    // Shows an error if something is wrong
     p(style="color:#ff512f") #{error}
   form(method="POST", action="/api/movies")
+    // Movie name input
     label(for="name") Name:
     input(type="text", name="name", id="name", required)
     br
+    // Description input
     label(for="description") Description:
     textarea(name="description", id="description", required)
     br
+    // Year input
     label(for="year") Year:
     input(type="number", name="year", id="year", required)
     br
+    // Genres input (comma separated)
     label(for="genres") Genres (comma separated):
     input(type="text", name="genres", id="genres", required)
     br
+    // Rating input
     label(for="rating") Rating (1-10):
     input(type="number", name="rating", id="rating", min="1", max="10", required)
     br
+    // Submit button
     button(type="submit") Add Movie
   br
+  // Link to go back to all movies
   a.btn(href="/api/movies") Back to All Movies

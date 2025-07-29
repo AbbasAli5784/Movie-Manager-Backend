@@ -1,3 +1,4 @@
+// This is the main page that shows all movies
 extends layout
 
 block content
@@ -5,13 +6,18 @@ block content
   .movie-list
     each movie in movies
       .movie-card
+        // Show movie name and year
         strong= movie.name
         |  - #{movie.year}
         br
         .movie-actions
+          // Button to view movie details
           a.btn(href=`/api/movies/${movie._id}`) View
+          // Button to edit movie
           a.btn(href=`/api/movies/${movie._id}/edit`) Edit
+          // Form to delete movie
           form(action=`/api/movies/${movie._id}?_method=DELETE` method="POST" style="display:inline")
             button(type="submit") Delete
   br
+  // Button to add a new movie
   a.btn(href="/api/movies/add") Add a New Movie

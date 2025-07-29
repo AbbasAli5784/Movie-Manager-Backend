@@ -1,3 +1,4 @@
+// This page lets you edit an existing movie
 doctype html
 html
   head
@@ -5,26 +6,29 @@ html
   body
     h1 Edit #{movie.name}
     if error
+      // Shows an error if something is wrong
       p(style="color:#ff512f") #{error}
+    // Edit movie form
     form(method="POST" action=`/api/movies/${movie._id}?_method=PUT`)
+      // Name input
       label(for="name") Name:
       input(type="text" name="name" value=movie.name required)
       br
-
+      // Description input
       label(for="description") Description:
       textarea(name="description" required)= movie.description
       br
-
+      // Year input
       label(for="year") Year:
       input(type="number" name="year" value=movie.year required)
       br
-
+      // Genres input
       label(for="genres") Genres (comma separated):
       input(type="text" name="genres" value=movie.genres.join(", ") required)
       br
-
+      // Rating input
       label(for="rating") Rating (1-10):
       input(type="number" name="rating" value=movie.rating min="1" max="10" required)
       br
-
+      // Submit button
       button(type="submit") Update Movie
