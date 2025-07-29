@@ -1,22 +1,15 @@
-// This page shows details for a single movie
-doctype html
-html
-  head
-    title= movie.name
-  body
-    h1= movie.name
+extends layout
+
+block content
+  .movie-card(style="max-width:400px; margin:auto;")
+    h1 #{movie.name}
     p
-      // Show the movie description
-      | Description: #{movie.description}
+      | <b>Description:</b> #{movie.description}
       br
-      // Show the year
-      | Year: #{movie.year}
+      | <b>Year:</b> #{movie.year}
       br
-      // Show the genres
-      | Genres: #{movie.genres.join(', ')}
+      | <b>Genres:</b> #{movie.genres.join(', ')}
       br
-      // Show the rating
-      | Rating: #{movie.rating}
-    br
-    // Link to go back to all movies
-    a(href="/api/movies") Back to All Movies
+      | <b>Rating:</b> #{movie.rating}
+  br
+  a.btn(href="/api/movies") Back to All Movies
