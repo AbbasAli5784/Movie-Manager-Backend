@@ -1,10 +1,8 @@
-// This page lets users log in to their account
 extends layout
-
 block content
   h1 Login
   if error
-    // Shows an error if login fails
+    // Shows an error if login fails 
     p(style="color:#ff512f") #{error}
   form(method="POST", action="/auth/login")
     // Username input
