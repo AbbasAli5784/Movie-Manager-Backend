@@ -1,0 +1,174 @@
+doctype html
+html
+  head
+    title Movie Manager
+    style.
+      body {
+        margin: 0;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: #181c24;
+        color: #f3f3f3;
+        min-height: 100vh;
+      }
+      header {
+        background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+        padding: 24px 0 16px 0;
+        text-align: center;
+        color: #fff;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        letter-spacing: 2px;
+        font-size: 2.2rem;
+        font-weight: bold;
+      }
+      .top-right {
+        position: absolute;
+        top: 24px;
+        right: 32px;
+        display: flex;
+        gap: 18px;
+        align-items: center;
+      }
+      .top-right a {
+        color: #fff;
+        background: #232946;
+        padding: 7px 18px;
+        border-radius: 20px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background 0.2s, color 0.2s;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      }
+      .top-right a:hover {
+        background: #ff512f;
+        color: #fff;
+      }
+      main {
+        max-width: 700px;
+        margin: 40px auto 0 auto;
+        background: #232946;
+        border-radius: 18px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+        padding: 36px 32px 32px 32px;
+      }
+      h1, h2, h3 {
+        color: #ffb86b;
+        margin-top: 0;
+      }
+      a {
+        color: #ff512f;
+        text-decoration: underline;
+      }
+      button, input[type="submit"] {
+        background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+        color: #fff;
+        border: none;
+        border-radius: 20px;
+        padding: 8px 20px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 8px;
+        transition: background 0.2s;
+      }
+      button:hover, input[type="submit"]:hover {
+        background: #ffb86b;
+        color: #232946;
+      }
+      a.btn {
+        display: inline-block;
+        background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+        color: #fff !important;
+        border: none;
+        border-radius: 20px;
+        padding: 8px 20px;
+        font-size: 1rem;
+        font-weight: 500;
+        text-decoration: none;
+        margin-top: 8px;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      }
+      a.btn:hover {
+        background: #ffb86b;
+        color: #232946 !important;
+      }
+      .movie-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 28px;
+        margin-top: 24px;
+        justify-content: flex-start;
+      }
+      .movie-card {
+        background: #232946;
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+        padding: 22px 26px 18px 26px;
+        min-width: 220px;
+        max-width: 260px;
+        margin-bottom: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        transition: transform 0.15s;
+      }
+      .movie-card:hover {
+        transform: translateY(-6px) scale(1.03);
+        box-shadow: 0 6px 24px rgba(255,81,47,0.18);
+      }
+      .movie-card strong {
+        font-size: 1.15rem;
+        color: #ffb86b;
+      }
+      .movie-card a, .movie-card button {
+        margin-top: 8px;
+      }
+      .movie-actions {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        margin-top: 8px;
+      }
+      .movie-actions form {
+        margin: 0;
+      }
+      input[type="text"],
+      input[type="number"],
+      textarea {
+        background: #232946;
+        color: #f3f3f3;
+        border: 1.5px solid #ffb86b;
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-size: 1rem;
+        margin-bottom: 8px;
+        margin-top: 4px;
+        width: 100%;
+        box-sizing: border-box;
+        transition: border 0.2s, background 0.2s;
+      }
+      input[type="text"]:focus,
+      input[type="number"]:focus,
+      textarea:focus {
+        border: 1.5px solid #ff512f;
+        background: #181c24;
+        outline: none;
+      }
+      label {
+        margin-top: 12px;
+        display: block;
+        color: #ffb86b;
+        font-weight: 500;
+      }
+  body
+    header Movie Manager 🍿
+    if user
+      div.top-right
+        a(href="/auth/logout") Logout
+        a(href="/auth/me") My Info
+    else
+      div.top-right
+        a(href="/auth/login") Login
+        a(href="/auth/register") Register
+    main
+      block content

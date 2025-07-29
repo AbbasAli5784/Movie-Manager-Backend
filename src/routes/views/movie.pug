@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title= movie.name
+  body
+    h1= movie.name
+    p
+      | Description: #{movie.description}
+      br
+      | Year: #{movie.year}
+      br
+      | Genres: #{movie.genres.join(', ')}
+      br
+      | Rating: #{movie.rating}
+    br
+    a(href="/api/movies") Back to All Movies
